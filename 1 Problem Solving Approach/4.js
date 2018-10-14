@@ -21,7 +21,10 @@ function sumZero(arr){
 			}
 		}
 	}
-}
+}/*
+Time Complexity - O(N^2)
+
+Space Complexity - O(1)*/
 function sumZero(arr){
     let first = 0;
     let lastIndex = arr.length - 1;
@@ -42,3 +45,6 @@ function sumZero(arr){
           }
       }
 }
+/*Time Complexity - O(N)
+
+Space Complexity - O(1)*/
