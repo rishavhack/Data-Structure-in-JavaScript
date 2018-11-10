@@ -1,98 +1,98 @@
 class Node{
 	constructor(val){
 		this.val = val;
-		this.next = null
+		this.next = null;
 	}
 }
 class SinglyLinkedList{
 	constructor(){
 		this.head = null;
-		this.next = null;
+		this.tail = null;
 		this.length = 0;
 	}
 	push(val){
-		let newNode = new Node(val)
+		let newNode = new Node(val);
 		if(!this.head){
 			this.head = newNode;
-			this.tail = this.head
+			this.tail = this.head;
 		}else{
 			this.tail.next = newNode;
 			this.tail = newNode;
 		}
 		this.length++
-		return this;
-	}	
+		return this
+	}
 	pop(){
 		if(!this.head){
-			return undefined;
+			return undefined
 		}
-		let current = this.head;
-		let newTail = current
-		while(current.next){
-			newTail = current;
-			current = current.next;
+		let currentTail = this.head;
+		let newTail = currentTail;
+		while(currentTail){
+			newTail = currentTail
+			currentTail = currentTail.next;
 		}
 		this.tail = newTail;
 		this.tail.next = null;
-		this.length--
+		this.length--;
 		if(this.length === 0){
 			this.head = null;
 			this.tail = null;
 		}
-		return newTail;
+		return this;
 	}
 	shift(){
 		if(!this.head){
 			return undefined;
 		}
 		let newHead = this.head;
-		this.head = newHead.next;
+		this.head = newNode.next;
 		this.length--;
 		if(this.length === 0){
-			this.tail = null
+			this.tail = null;
 		}
 		return newHead
 	}
 	unshift(val){
-		var newNode = new Node(val);
+		let newNode = new Node(val);
 		if(!this.head){
 			this.head = newNode;
 			this.tail = this.head;
 		}else{
-			newNode.next = newNode;
+			newNode.next = this.head;
 			this.head = newNode;
 		}
 		this.length++
-		return newNode
+		return this
 	}
-	get(index){
+	getNode(index){
 		if(index < 0 || index >= this.length){
 			return null;
 		}
-		var counter = 0;
-		var current = this.head;
+		let counter = 0;
+		let current = this.head;
 		while(counter != index){
-			current = current.next;
+			current = current.next
 			counter++
 		}
 		return current;
 	}
-	insert(index,val){
+	insert(val,index){
 		if(index < 0 || index > this.length){
-			return null;
+			return null
 		}
 		if(index === this.length){
-			return this.push(val);
+			return this.push(val)
 		}
 		if(index === 0){
 			return this.unshift(val)
 		}
-		var newNode = new Node(val);
-		var prev = this.get(index - 1)
-		var temp = prev.next;
-		prev.next = newNode;
+		let previous = this.getNode(index - 1);
+		let newNode = new Node(val);
+		var temp = previous.next;
+		previous.next = newNode;
 		newNode.next = temp;
 		this.length++
-		return true;
+		return this;
 	}
 }
