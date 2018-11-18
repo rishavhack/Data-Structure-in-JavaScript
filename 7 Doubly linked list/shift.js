@@ -28,16 +28,32 @@ class DoublyLinkedList{
 		if(!this.head){
 			return undefined;
 		}
-		var poppedTail = this.tail;
+		var poppedNode = this.tail;
 		if(this.length === 1){
 			this.head = null;
 			this.tail = null;
 		}else{
-			this.tail = poppedTail.prev;
+			this.tail = poppedNode.prev;
 			this.tail.next = null;
-			poppedTail.prev = null;
+			poppedNode.prev = null;
 		}
 		this.length--;
-		return poppedTail;
+		return poppedNode;
+	}
+	shift(){
+		if(!this.head){
+			return undefined;
+		}
+		var oldHead = this.head;
+		if(this.length === 1){
+			this.head = null;
+			this.tail = null;
+		}else{
+			this.head = oldHead.next;
+			this.head.prev = null;
+			oldHead.next = null;
+		}
+		this.length--;
+		return oldHead;
 	}
 }
