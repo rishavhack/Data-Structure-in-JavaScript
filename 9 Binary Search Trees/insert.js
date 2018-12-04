@@ -21,7 +21,7 @@ class BinarySearchTree{
 				if(value == current.value){
 					return null
 				}
-				if(value < current.left){
+				if(value < current.value){
 					if(current.left == null){
 						current.left = newNode;
 						return this
