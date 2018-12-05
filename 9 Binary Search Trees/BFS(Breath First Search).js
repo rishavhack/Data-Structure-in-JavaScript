@@ -60,7 +60,7 @@ class BinarySearchTree{
 		var node = this.root;
 		var data = [];
 		var queue = [];
-
+		queue.push(node);
 		while(queue.length){
 			node = queue.shift();
 			data.push(node);//data.push(node.value) to see result
