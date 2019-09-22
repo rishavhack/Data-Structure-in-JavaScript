@@ -77,5 +77,23 @@ class SinglyLinkedList{
         }
         return current
     }
+    insert(val,index){
+        if(index < 0 || index > this.length){
+            return null;
+        }
+        if(index == this.length){
+            return null
+        }
+        if(index == 0){
+            return this.unshift(val)
+        }
+        let previous = this.getNode(index - 1);
+        let newNode = new Node(val);
+        var temp = previous.next;
+        previous.next = newNode;
+        newNode.next = temp;
+        this.length++
+        return null
+    }
 }
 var list = new SinglyLinkedList()
