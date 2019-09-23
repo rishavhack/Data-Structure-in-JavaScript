@@ -95,5 +95,21 @@ class SinglyLinkedList{
         this.length++
         return null
     }
+    remove(index){
+        if(index < 0 || index > this.length){
+            return null;
+        }
+        if(index == 0){
+            this.shift()
+        }
+        if(index == this.length -1){
+            this.pop()
+        }
+        let previous = this.getNode(index - 1)
+        var removedtemp = previous.next;
+        previous.next = removedtemp.next;
+        this.length--
+        return removedtemp
+    }
 }
 var list = new SinglyLinkedList()
